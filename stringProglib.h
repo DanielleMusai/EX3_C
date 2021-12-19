@@ -1,11 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include "stringProglib.h"
-#include <ctype.h>
-#include <stdlib.h>
-#include <stddef.h>
-#define TXT 1024
-#define WORD 30
 
 int checkLetter(char c);// check the value of each char
 int num(char *st);//a word numro
