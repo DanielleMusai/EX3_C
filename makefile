@@ -1,19 +1,16 @@
-CC=gcc
 AR= ar
-OBJECT= stringProg.o
-FLAGS = -Wall -g
+CC = gcc
+NAME_ = stringProg
+FLAGS = -Wall -Werror -g
 
-all : $(stringProg)
-	$(CC) $(OBJECT) -o $(stringProg)
-
-stringProglib.o:  stringProg.c stringProglib.h
-$(CC) $(FLAGS) -c  stringProglib.h
-
+all : $(NAME_)
+$(NAME_): $(stringProg.o)
+	$(CC) $(stringProg.o) -o $(NAME_)
+stringProglib.o: stringProglib.c stringProglib.h
+	$(CC) $(FLAGS) -c stringProglib.c
 stringProg.o: stringProg.c
-$(CC) $(FLAGS) -c stringProg.c
+	$(CC) $(FLAGS) -c stringProg.c
 
-.PHONY = clean all
-
+.PHONY = all clean
 clean:
-	rm -f *.o *.a *.so stringProg
-	
+	rm -f *.o *.a stringProg
