@@ -267,11 +267,11 @@ int main()
         i++;
         ch = getchar();
     } while (ch != '~');
-    printf("Gematria Sequences: ");
+    printf("Gematria Sequences:");
     Gematria(word, text);
-    printf("Atbash Sequences: ");
+    printf("Atbash Sequences:");
     Atbash(word,text);
-    printf("Anagram Sequences: ");
+    printf("Anagram Sequences:");
     Anagram(word,text);
     return 0;
 }
