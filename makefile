@@ -2,14 +2,13 @@
 AR=ar
 CC=gcc
 FLAGS= -Wall -g
-all: libmylib.a stringProg
-stringProg: main.o libmylib.a
-	$(CC) $(FLAGS) -o stringProg main.o libmylib.a
-libmylib.a:string.o
-	$(AR) -rcs libmylib.a string.o
-string.o:string.c stringlib.h
-	$(CC) $(FLAG) -c string.c stringlib.h
-main.o:main.c stringlib.h
-	$(CC) $(FLAGS) -c main.c 
+all: libmy.a stringProg
+stringProg:  libmy.a
+	$(CC) $(FLAGS) -o stringProg libmy.a
+libmy.a:stringProg.o
+	$(AR) -rcs libmy.a stringProg.o
+stringProg.o:stringProg.c stringProglib.h
+	$(CC) $(FLAG) -c stringProg.c stringProglib.h
+
 clean:
 	rm -f *.o *.a *.so *.out *.gch stringProg
