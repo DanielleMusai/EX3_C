@@ -1,16 +1,15 @@
-AR= ar
-CC = gcc
-NAME_ = stringProg
-FLAGS = -Wall -Werror -g
-
-all : $(NAME_)
-$(NAME_): $(stringProg.o)
-	$(CC) $(stringProg.o) -o $(NAME_)
-stringProglib.o: stringProglib.c stringProglib.h
-	$(CC) $(FLAGS) -c stringProglib.c
-stringProg.o: stringProg.c
-	$(CC) $(FLAGS) -c stringProg.c
-
-.PHONY = all clean
+.PHONY =all clean
+AR=ar
+CC=gcc
+FLAGS= -Wall -g
+all: libmylib.a stringProg
+stringProg: main.o libmylib.a
+	$(CC) $(FLAGS) -o stringProg main.o libmylib.a
+libmylib.a:string.o
+	$(AR) -rcs libmylib.a string.o
+string.o:string.c stringlib.h
+	$(CC) $(FLAG) -c string.c stringlib.h
+main.o:main.c stringlib.h
+	$(CC) $(FLAGS) -c main.c 
 clean:
-	rm -f *.o *.a stringProg
+	rm -f *.o *.a *.so *.out *.gch stringProg
