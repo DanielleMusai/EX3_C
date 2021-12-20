@@ -124,6 +124,7 @@ char *atbashWord(char *word)//translate the word to atbash
 
 void Atbash(char *word, char *text)
 { 
+    char* ans=(char*)malloc(sizeof(char)*780);
     int wlen= strlen(word);
     char *atword= atbashWord(word);
     char *revatword= atbashWord(reverse(word));
@@ -161,7 +162,6 @@ void Atbash(char *word, char *text)
            }
         }
     }
-    
     printf("\n");
 }
         
@@ -241,7 +241,6 @@ void Anagram(char *word, char *text){
        }
     
     }
-    printf("\n");
 }
     
 int main()
@@ -267,7 +266,7 @@ int main()
     } while (ch != '~');
     printf("Gematria Sequences: ");
     Gematria(word, text);
-    printf("Atbash Sequences: ");
+    printf("Atbash Sequences:%c",32);
     Atbash(word,text);
     printf("Anagram Sequences: ");
     Anagram(word,text);
