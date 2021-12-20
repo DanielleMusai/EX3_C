@@ -1,4 +1,3 @@
-
 int checkLetter(char c);// check the value of each char
 int num(char *st);//a word numro
 int isSign(char c);// check if its only letters
